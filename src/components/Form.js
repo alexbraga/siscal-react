@@ -52,7 +52,7 @@ function Form() {
         return (
           <BusinessDetailsForm
             handleChange={handleChange}
-            values={info}
+            formData={info}
           />
         );
 
@@ -60,7 +60,7 @@ function Form() {
         return (
           <RelevanceFactorForm
             handleChange={handleChange}
-            values={info}
+            formData={info}
           />
         );
 
@@ -68,7 +68,7 @@ function Form() {
         return (
           <TemporalityFactorForm
             handleChange={handleChange}
-            values={info}
+            formData={info}
           />
         );
 
@@ -76,7 +76,7 @@ function Form() {
         return (
           <CoverageFactorForm
             handleChange={handleChange}
-            values={info}
+            formData={info}
           />
         );
 
@@ -84,7 +84,7 @@ function Form() {
         return (
           <Report
             handleChange={handleChange}
-            values={info}
+            formData={info}
           />
         );
 
