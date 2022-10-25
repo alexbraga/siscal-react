@@ -16,9 +16,23 @@ function Form() {
     businessName: "",
     cnpj: "",
     referenceValue: 0,
-    relevanceFactor: 0,
-    temporalityFactor: 0,
-    coverageFactor: 0,
+    relevanceFactor: {
+      rf01: false,
+      rf02: false,
+      rf03: "",
+      rf04: false,
+      rf05: false,
+      rf06: "",
+      rf07: false,
+      rf08: false,
+      rf09: false,
+      rf10: false,
+      rf11: false,
+      rf12: false,
+      rf13: false,
+    },
+    temporalityFactor: "",
+    coverageFactor: "",
   });
 
   const steps = ["Informações do Empreendimento", "Fator de Relevância", "Fator de Temporalidade", "Fator de Abrangência", "Relatório Final"]
@@ -36,12 +50,17 @@ function Form() {
   }
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name, id, value, checked } = event.target;
 
     setInfo((prevValue) => {
       return {
         ...prevValue,
         [name]: value,
+        relevanceFactor: {
+          ...prevValue.relevanceFactor,
+          [id]: checked,
+          [name]: value
+        },
       };
     });
   }
