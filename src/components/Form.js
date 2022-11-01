@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BusinessDetailsForm from "./BusinessDetailsForm";
 import RelevanceFactorForm from "./RelevanceFactorForm";
 import TemporalityFactorForm from "./TemporalityFactorForm";
@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import { Relevance } from "../factors";
 
 function Form() {
   const [step, setStep] = useState(0);
@@ -35,18 +36,53 @@ function Form() {
     coverageFactor: "",
   });
 
-  const steps = ["Informações do Empreendimento", "Fator de Relevância", "Fator de Temporalidade", "Fator de Abrangência", "Relatório Final"]
+  const steps = [
+    "Informações do Empreendimento",
+    "Fator de Relevância",
+    "Fator de Temporalidade",
+    "Fator de Abrangência",
+    "Relatório Final",
+  ];
+
+  const [relFactors, setRelFactors] = useState([]);
+
+  useEffect(() => {
+    const uncheckedElements = document.querySelectorAll(
+      `input[type="radio"]:not(:checked)`
+    );
+
+    const uncheckedRadios = [];
+    uncheckedElements.forEach((elem) => {
+      switch (elem.name) {
+        case "rf03":
+          return uncheckedRadios.push(Relevance[2].text + " " + elem.value);
+
+        case "rf06":
+          return uncheckedRadios.push(
+            "Interferência em áreas prioritárias para a conservação: " +
+              elem.value
+          );
+
+        default:
+          break;
+      }
+    })
+
+    setRelFactors(
+      relFactors.filter((element) => {
+        return !uncheckedRadios.includes(element);
+      })
+    );
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [info]);
 
   function nextStep() {
-    setStep((currentValue) =>
-      currentValue + 1
-    );
+    setStep((currentValue) => currentValue + 1);
   }
 
   function prevStep() {
-    setStep((currentValue) =>
-      currentValue - 1
-    );
+    setStep((currentValue) => currentValue - 1);
   }
 
   function handleChange(event) {
@@ -59,44 +95,63 @@ function Form() {
         relevanceFactor: {
           ...prevValue.relevanceFactor,
           [id]: checked,
-          [name]: value
+          [name]: value,
         },
       };
     });
+  }
+
+  function handleChoice(event, text) {
+    const { name, value, type, checked } = event.target;
+    const index = relFactors.indexOf(text);
+
+    if (checked) {
+      if (type === "radio") {
+        if (name === "rf03") {
+          setRelFactors([...relFactors, `${text} ${value}`]);
+        } else if (name === "rf06") {
+          setRelFactors([...relFactors, `Interferência em áreas prioritárias para a conservação: ${value}`]);
+        }
+      } else {
+        setRelFactors([...relFactors, text]);
+      }
+    } else {
+      setRelFactors(
+        relFactors.filter((element, id) => {
+          return index !== id;
+        })
+      );
+    }
   }
 
   function pageDisplay() {
     switch (step) {
       case 0:
         return (
-          <BusinessDetailsForm
-            handleChange={handleChange}
-            formData={info}
-          />
+          <BusinessDetailsForm handleChange={handleChange} formData={info} />
         );
 
       case 1:
         return (
           <RelevanceFactorForm
-            handleChange={handleChange}
             formData={info}
+            handleChange={handleChange}
+            handleChoice={handleChoice}
           />
         );
 
       case 2:
         return (
           <TemporalityFactorForm
-            handleChange={handleChange}
             formData={info}
+            handleChange={handleChange}
+            handleChoice={handleChoice}
           />
         );
 
       case 3:
         return (
-          <CoverageFactorForm
-            handleChange={handleChange}
-            formData={info}
-          />
+          <CoverageFactorForm handleChange={handleChange} formData={info} />
         );
 
       case 4:
@@ -104,6 +159,7 @@ function Form() {
           <Report
             handleChange={handleChange}
             formData={info}
+            relevanceFactors={relFactors}
           />
         );
 
@@ -117,7 +173,7 @@ function Form() {
       <div className="form-container">
         <div className="header">
           <div className="progress-bar">
-            <Stepper activeStep={step} alternativeLabel sx={{margin: 5}}>
+            <Stepper activeStep={step} alternativeLabel sx={{ margin: 5 }}>
               {steps.map((label) => (
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
