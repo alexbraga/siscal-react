@@ -13,7 +13,7 @@ import { Relevance } from "../factors";
 function Form() {
   const [step, setStep] = useState(0);
 
-  const [info, setInfo] = useState({
+  const [formData, setFormData] = useState({
     businessName: "",
     cnpj: "",
     referenceValue: 0,
@@ -73,9 +73,9 @@ function Form() {
         return !uncheckedRadios.includes(element);
       })
     );
-    
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [info]);
+  }, [formData]);
 
   function nextStep() {
     setStep((currentValue) => currentValue + 1);
@@ -88,7 +88,7 @@ function Form() {
   function handleChange(event) {
     const { name, id, value, checked } = event.target;
 
-    setInfo((prevValue) => {
+    setFormData((prevValue) => {
       return {
         ...prevValue,
         [name]: value,
@@ -128,13 +128,13 @@ function Form() {
     switch (step) {
       case 0:
         return (
-          <BusinessDetailsForm handleChange={handleChange} formData={info} />
+          <BusinessDetailsForm handleChange={handleChange} formData={formData} />
         );
 
       case 1:
         return (
           <RelevanceFactorForm
-            formData={info}
+            formData={formData}
             handleChange={handleChange}
             handleChoice={handleChoice}
           />
@@ -143,7 +143,7 @@ function Form() {
       case 2:
         return (
           <TemporalityFactorForm
-            formData={info}
+            formData={formData}
             handleChange={handleChange}
             handleChoice={handleChoice}
           />
@@ -151,14 +151,14 @@ function Form() {
 
       case 3:
         return (
-          <CoverageFactorForm handleChange={handleChange} formData={info} />
+          <CoverageFactorForm handleChange={handleChange} formData={formData} />
         );
 
       case 4:
         return (
           <Report
             handleChange={handleChange}
-            formData={info}
+            formData={formData}
             relevanceFactors={relFactors}
           />
         );
