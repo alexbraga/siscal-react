@@ -69,4 +69,9 @@ export const Temporality = {
   ],
 };
 
-export const Coverage = [{}];
+export const Coverage = {
+  options: [
+    "Área de Interferência DIRETA do Empreendimento",
+    "Área de interferência INDIRETA do Empreendimento",
+  ],
+};

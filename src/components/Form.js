@@ -46,6 +46,7 @@ function Form() {
 
   const [relFactors, setRelFactors] = useState([]);
   const [tempFactor, setTempFactor] = useState("");
+  const [coverageFactor, setCoverageFactor] = useState("");
 
   useEffect(() => {
     const uncheckedElements = document.querySelectorAll(
@@ -116,7 +117,13 @@ function Form() {
             `Interferência em áreas prioritárias para a conservação: ${value}`,
           ]);
         } else {
-          setTempFactor(text);
+          if (name === "temporalityFactor") {
+            setTempFactor(text);
+          }
+
+          if (name === "coverageFactor") {
+            setCoverageFactor(text);
+          }
         }
       } else {
         setRelFactors([...relFactors, text]);
@@ -160,7 +167,11 @@ function Form() {
 
       case 3:
         return (
-          <CoverageFactorForm handleChange={handleChange} formData={formData} />
+          <CoverageFactorForm
+            formData={formData}
+            handleChange={handleChange}
+            handleChoice={handleChoice}
+          />
         );
 
       case 4:
@@ -170,6 +181,7 @@ function Form() {
             formData={formData}
             relevanceFactors={relFactors}
             temporalityFactor={tempFactor}
+            coverageFactor={coverageFactor}
           />
         );
 
