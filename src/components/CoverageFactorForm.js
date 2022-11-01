@@ -10,16 +10,16 @@ function CoverageFactorForm(props) {
     return Coverage.options.map((option) => {
       return (
         <FormControlLabel
-          key={option}
-          label={option}
+          key={option.value}
+          label={option.value}
           control={
             <Radio
               name="coverageFactor"
-              value={option}
-              checked={props.formData.coverageFactor === option}
+              value={option.value}
+              checked={props.formData.coverageFactor === option.value}
               onChange={(event) => {
                 props.handleChange(event);
-                props.handleChoice(event, option);
+                props.handleChoice(event, option.value);
               }}
             />
           }

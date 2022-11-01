@@ -35,7 +35,7 @@ function Report(props) {
       <p>{props.temporalityFactor}</p>
 
       <Typography sx={{ mt: 2 }}>
-        <strong>Fator de Cobertura:</strong>
+        <strong>Fator de Abrangência:</strong>
       </Typography>
       <p>{props.coverageFactor}</p>
     </div>

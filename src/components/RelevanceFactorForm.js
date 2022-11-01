@@ -19,14 +19,14 @@ function RelevanceFactorForm(props) {
                 {factor.options.map((option) => {
                   return (
                     <FormControlLabel
-                      key={option}
-                      label={option}
+                      key={option.value}
+                      label={option.value}
                       control={
                         <Radio
                           name={factor.id}
-                          value={option}
+                          value={option.value}
                           checked={
-                            props.formData.relevanceFactor[factor.id] === option
+                            props.formData.relevanceFactor[factor.id] === option.value
                           }
                           onChange={(event) => {
                             props.handleChange(event);

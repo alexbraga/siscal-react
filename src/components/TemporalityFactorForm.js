@@ -10,16 +10,16 @@ function TemporalityFactorForm(props) {
     return Temporality.options.map((option) => {
       return (
         <FormControlLabel
-          key={option}
-          label={option}
+          key={option.value}
+          label={option.value}
           control={
             <Radio
               name="temporalityFactor"
-              value={option}
-              checked={props.formData.temporalityFactor === option}
+              value={option.value}
+              checked={props.formData.temporalityFactor === option.value}
               onChange={(event) => {
                 props.handleChange(event);
-                props.handleChoice(event, option);
+                props.handleChoice(event, option.value);
               }}
             />
           }
