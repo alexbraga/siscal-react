@@ -45,6 +45,7 @@ function Form() {
   ];
 
   const [relFactors, setRelFactors] = useState([]);
+  const [tempFactor, setTempFactor] = useState("");
 
   useEffect(() => {
     const uncheckedElements = document.querySelectorAll(
@@ -66,7 +67,7 @@ function Form() {
         default:
           break;
       }
-    })
+    });
 
     setRelFactors(
       relFactors.filter((element) => {
@@ -74,7 +75,7 @@ function Form() {
       })
     );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 
   function nextStep() {
@@ -110,7 +111,12 @@ function Form() {
         if (name === "rf03") {
           setRelFactors([...relFactors, `${text} ${value}`]);
         } else if (name === "rf06") {
-          setRelFactors([...relFactors, `Interferência em áreas prioritárias para a conservação: ${value}`]);
+          setRelFactors([
+            ...relFactors,
+            `Interferência em áreas prioritárias para a conservação: ${value}`,
+          ]);
+        } else {
+          setTempFactor(text);
         }
       } else {
         setRelFactors([...relFactors, text]);
@@ -128,7 +134,10 @@ function Form() {
     switch (step) {
       case 0:
         return (
-          <BusinessDetailsForm handleChange={handleChange} formData={formData} />
+          <BusinessDetailsForm
+            handleChange={handleChange}
+            formData={formData}
+          />
         );
 
       case 1:
@@ -160,6 +169,7 @@ function Form() {
             handleChange={handleChange}
             formData={formData}
             relevanceFactors={relFactors}
+            temporalityFactor={tempFactor}
           />
         );
 

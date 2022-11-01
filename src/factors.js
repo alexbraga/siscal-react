@@ -60,6 +60,13 @@ export const Relevance = [
   },
 ];
 
-export const Temporality = [{}];
+export const Temporality = {
+  options: [
+    "Duração IMEDIATA (empreendimento deve durar de 0 a cinco anos)",
+    "Duração CURTA (empreendimento deve durar de cinco a dez anos)",
+    "Duração MÉDIA (empreendimento deve durar de dez a vinte anos)",
+    "Duração LONGA (empreendimento deve durar mais de 20 anos)",
+  ],
+};
 
 export const Coverage = [{}];
