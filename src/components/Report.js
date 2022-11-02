@@ -8,13 +8,30 @@ function Report(props) {
     currency: "BRL",
   });
 
-  function envCompensation() {
-    const radioScoreSum = props.radioScores.reduce((a, b) => {
-      return (a.toFixed(3) * 1000 + b.toFixed(3) * 1000) / 1000;
-    }, 0);
+  function relFactorScore() {
+    const sum =
+      (props.scores.toFixed(3) * 1000 +
+        props.radioScores[0].toFixed(3) * 1000 +
+        props.radioScores[1].toFixed(3) * 1000) /
+      1000;
 
+    return sum;
+  }
+
+  function tempFactorScore() {
+    return props.radioScores[2];
+  }
+
+  function coverFactorScore() {
+    return props.radioScores[3];
+  }
+
+  function envCompensation() {
     const scoreSum =
-      (props.scores.toFixed(3) * 1000 + radioScoreSum.toFixed(3) * 1000) / 1000;
+      (relFactorScore().toFixed(3) * 1000 +
+        tempFactorScore().toFixed(3) * 1000 +
+        coverFactorScore().toFixed(3) * 1000) /
+      1000;
 
     let factorIndex = 0;
 
@@ -30,42 +47,65 @@ function Report(props) {
   }
 
   return (
-    <div>
-      <Typography>
+    <div style={{ textAlign: "left" }}>
+      {/* DADOS DO EMPREENDIMENTO */}
+      <Typography variant="body2">
         <strong>Empreendimento:</strong> {props.formData.businessName}
       </Typography>
 
-      <Typography>
+      <Typography variant="body2">
         <strong>CNPJ:</strong> {props.formData.cnpj}
       </Typography>
 
-      <Typography>
+      <Typography variant="body2">
         <strong>Valor de Referência:</strong>{" "}
         {formatter.format(props.formData.referenceValue)}
       </Typography>
 
-      <Typography sx={{ mt: 2 }}>
+      {/* FATOR DE RELEVÂNCIA */}
+      <Typography variant="body2" sx={{ mt: 2 }}>
         <strong>Fatores de Relevância:</strong>
       </Typography>
       {props.relevanceFactors.map((factor, index) => (
-        <p key={index}>{factor}</p>
+        <Typography variant="body2" key={index}>
+          ● {factor}
+        </Typography>
       ))}
+      <Typography variant="body2">
+        <strong>Índice FR:</strong> {relFactorScore()}
+      </Typography>
 
-      <Typography sx={{ mt: 2 }}>
+      {/* FATOR DE TEMPORALIDADE */}
+      <Typography variant="body2" sx={{ mt: 2 }}>
         <strong>Fator de Temporalidade:</strong>
       </Typography>
-      <p>{props.temporalityFactor}</p>
+      <Typography variant="body2">● {props.temporalityFactor}</Typography>
+      <Typography variant="body2">
+        <strong>Índice FT:</strong> {tempFactorScore()}
+      </Typography>
 
-      <Typography sx={{ mt: 2 }}>
+      {/* FATOR DE ABRANGÊNCIA */}
+      <Typography variant="body2" sx={{ mt: 2 }}>
         <strong>Fator de Abrangência:</strong>
       </Typography>
-      <p>{props.coverageFactor}</p>
+      <Typography variant="body2">● {props.coverageFactor}</Typography>
+      <Typography variant="body2">
+        <strong>Índice FA:</strong> {coverFactorScore()}
+      </Typography>
       <br />
 
-      <Typography>
-        <strong>Valor da Compensação Ambiental:</strong>
+      {/* VALOR FINAL */}
+      <Typography variant="body2">
+        <strong>
+          Valor da Compensação Ambiental (CA = FR + (FT + FA) * VR):
+        </strong>{" "}
+        {formatter.format(envCompensation())}
       </Typography>
-      <p>{formatter.format(envCompensation())}</p>
+      <Typography variant="body2">
+        *Se a soma de <em>FR + (FT + FA) &gt; 0.5</em>, o índice a ser utilizado
+        é 0.005; caso contrário, considera-se o valor obtido multiplicado por
+        0,01.
+      </Typography>
     </div>
   );
 }
