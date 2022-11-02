@@ -47,6 +47,8 @@ function Form() {
   const [relFactors, setRelFactors] = useState([]);
   const [tempFactor, setTempFactor] = useState("");
   const [coverageFactor, setCoverageFactor] = useState("");
+  const [scores, setScores] = useState(0);
+  const radioScores = [0, 0, 0, 0];
 
   useEffect(() => {
     const uncheckedElements = document.querySelectorAll(
@@ -54,6 +56,7 @@ function Form() {
     );
 
     const uncheckedRadios = [];
+
     uncheckedElements.forEach((elem) => {
       switch (elem.name) {
         case "rf03":
@@ -75,7 +78,7 @@ function Form() {
         return !uncheckedRadios.includes(element);
       })
     );
-
+    console.log(scores);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 
@@ -103,7 +106,21 @@ function Form() {
     });
   }
 
-  function handleChoice(event, text) {
+  function addScore(score) {
+    setScores(
+      (currentValue) =>
+        (currentValue.toFixed(3) * 1000 + score.toFixed(3) * 1000) / 1000
+    );
+  }
+
+  function subtractScore(score) {
+    setScores(
+      (currentValue) =>
+        (currentValue.toFixed(3) * 1000 - score.toFixed(3) * 1000) / 1000
+    );
+  }
+
+  function handleChoice(event, text, score) {
     const { name, value, type, checked } = event.target;
     const index = relFactors.indexOf(text);
 
@@ -111,22 +128,27 @@ function Form() {
       if (type === "radio") {
         if (name === "rf03") {
           setRelFactors([...relFactors, `${text} ${value}`]);
+          radioScores[0] = score;
         } else if (name === "rf06") {
           setRelFactors([
             ...relFactors,
             `Interferência em áreas prioritárias para a conservação: ${value}`,
           ]);
+          radioScores[1] = score;
         } else {
           if (name === "temporalityFactor") {
             setTempFactor(text);
+            radioScores[2] = score;
           }
 
           if (name === "coverageFactor") {
             setCoverageFactor(text);
+            radioScores[3] = score;
           }
         }
       } else {
         setRelFactors([...relFactors, text]);
+        addScore(score);
       }
     } else {
       setRelFactors(
@@ -134,6 +156,8 @@ function Form() {
           return index !== id;
         })
       );
+
+      subtractScore(score);
     }
   }
 
@@ -182,6 +206,8 @@ function Form() {
             relevanceFactors={relFactors}
             temporalityFactor={tempFactor}
             coverageFactor={coverageFactor}
+            scores={scores}
+            radioScores={radioScores}
           />
         );
 

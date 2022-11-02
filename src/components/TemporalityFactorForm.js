@@ -7,10 +7,10 @@ import { Temporality } from "../factors";
 
 function TemporalityFactorForm(props) {
   function getOptions() {
-    return Temporality.options.map((option) => {
+    return Temporality.options.map((option, index) => {
       return (
         <FormControlLabel
-          key={option.value}
+          key={index}
           label={option.value}
           control={
             <Radio
@@ -19,7 +19,7 @@ function TemporalityFactorForm(props) {
               checked={props.formData.temporalityFactor === option.value}
               onChange={(event) => {
                 props.handleChange(event);
-                props.handleChoice(event, option.value);
+                props.handleChoice(event, option.value, option.score);
               }}
             />
           }

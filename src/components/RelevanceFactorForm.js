@@ -16,21 +16,26 @@ function RelevanceFactorForm(props) {
               <Typography>{factor.text}</Typography>
 
               <FormControl>
-                {factor.options.map((option) => {
+                {factor.options.map((option, index) => {
                   return (
                     <FormControlLabel
-                      key={option.value}
+                      key={index}
                       label={option.value}
                       control={
                         <Radio
                           name={factor.id}
                           value={option.value}
                           checked={
-                            props.formData.relevanceFactor[factor.id] === option.value
+                            props.formData.relevanceFactor[factor.id] ===
+                            option.value
                           }
                           onChange={(event) => {
                             props.handleChange(event);
-                            props.handleChoice(event, factor.text);
+                            props.handleChoice(
+                              event,
+                              factor.text,
+                              option.score
+                            );
                           }}
                         />
                       }
@@ -54,7 +59,7 @@ function RelevanceFactorForm(props) {
               checked={props.formData.relevanceFactor[factor.id]}
               onChange={(event) => {
                 props.handleChange(event);
-                props.handleChoice(event, factor.text);
+                props.handleChoice(event, factor.text, factor.score);
               }}
             />
           </td>

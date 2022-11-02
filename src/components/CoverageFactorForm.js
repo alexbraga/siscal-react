@@ -7,10 +7,10 @@ import { Coverage } from "../factors";
 
 function CoverageFactorForm(props) {
   function getOptions() {
-    return Coverage.options.map((option) => {
+    return Coverage.options.map((option, index) => {
       return (
         <FormControlLabel
-          key={option.value}
+          key={index}
           label={option.value}
           control={
             <Radio
@@ -19,7 +19,7 @@ function CoverageFactorForm(props) {
               checked={props.formData.coverageFactor === option.value}
               onChange={(event) => {
                 props.handleChange(event);
-                props.handleChoice(event, option.value);
+                props.handleChoice(event, option.value, option.score);
               }}
             />
           }
