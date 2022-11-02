@@ -1,0 +1,23 @@
+.cover-container {
+  height: 150px;
+}
+
+.alert-stack {
+  width: 60%;
+}
+
+@media (max-width: 810px) {
+  .cover-container {
+    height: auto;
+    text-align: left;
+  }
+
+  .cover-options {
+    margin: 10px 0;
+  }
+
+  .alert-stack {
+    width: 100%;
+    text-align: left;
+  }
+}

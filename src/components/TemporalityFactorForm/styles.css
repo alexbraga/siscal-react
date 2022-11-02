@@ -1,0 +1,14 @@
+.temp-container {
+  height: 250px;
+}
+
+@media (max-width: 810px) {
+  .temp-container {
+    height: auto;
+    text-align: left;
+  }
+
+  .temp-options {
+    margin: 10px 0;
+  }
+}

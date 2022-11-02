@@ -5,13 +5,15 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { Coverage } from "../factors";
+import { Coverage } from "../../factors";
+import "./styles.css";
 
 function CoverageFactorForm(props) {
   function getOptions() {
     return Coverage.options.map((option, index) => {
       return (
         <FormControlLabel
+          className="cover-options"
           key={index}
           label={option.value}
           control={
@@ -32,14 +34,14 @@ function CoverageFactorForm(props) {
 
   return (
     <div>
-      <FormControl sx={{ height: "120px" }}>
+      <FormControl className="cover-container">
         <FormLabel id="demo-radio-buttons-group-label">
           Área de Interferência
         </FormLabel>
         {getOptions()}
       </FormControl>
 
-      <Stack sx={{ width: "60%", margin: "auto" }} spacing={2}>
+      <Stack className="alert-stack" sx={{ margin: "auto" }} spacing={2}>
         <div className="alert">
           <Alert severity="info">
             O Fator de Abrangência é o critério que permite avaliar a

@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import { Relevance } from "../../factors";
 import Box from "@mui/material/Box";
-import "./styles.css"
+import "./styles.css";
 
 function RelevanceFactorForm(props) {
   function getOptions() {
@@ -14,7 +14,7 @@ function RelevanceFactorForm(props) {
       if (factor.id === "rf03" || factor.id === "rf06") {
         return (
           <tr key={factor.id}>
-            <td>
+            <td colSpan="2">
               <Typography>{factor.text}</Typography>
 
               <FormControl>
@@ -46,7 +46,6 @@ function RelevanceFactorForm(props) {
                 })}
               </FormControl>
             </td>
-            <td></td>
           </tr>
         );
       }

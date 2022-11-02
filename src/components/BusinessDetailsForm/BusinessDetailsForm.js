@@ -39,7 +39,7 @@ function BusinessDetailsForm(props) {
         />
       </span>
 
-      <Stack sx={{ width: "60%", margin: "auto" }} spacing={2}>
+      <Stack className="alert-stack" sx={{ margin: "auto" }} spacing={2}>
         <div className="alert">
           <Alert severity="warning">
             <AlertTitle>IMPORTANTE</AlertTitle>O Valor de Referência do

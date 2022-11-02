@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import BusinessDetailsForm from "../components/BusinessDetailsForm/BusinessDetailsForm";
 import RelevanceFactorForm from "../components/RelevanceFactorForm/RelevanceFactorForm";
-import TemporalityFactorForm from "../components/TemporalityFactorForm";
-import CoverageFactorForm from "../components/CoverageFactorForm";
+import TemporalityFactorForm from "../components/TemporalityFactorForm/TemporalityFactorForm";
+import CoverageFactorForm from "../components/CoverageFactorForm/CoverageFactorForm";
 import Report from "../components/Report";
 import Button from "@mui/material/Button";
 import { Relevance } from "../factors";

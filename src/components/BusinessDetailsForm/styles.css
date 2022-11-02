@@ -1,16 +1,27 @@
 .currencyinput {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 14px 14px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 14px 14px;
 }
 
 .currencyinput input {
-    border: 0;
-    font-size: medium;
-    width: 190px;
-    padding: 0;
+  border: 0;
+  font-size: medium;
+  width: 190px;
+  padding: 0;
 }
 
 .currencyinput input:focus {
-    outline: none;
+  outline: none;
+}
+
+.alert-stack {
+  width: 60%;
+}
+
+@media (max-width: 810px) {
+  .alert-stack {
+    width: 100%;
+    text-align: left;
+  }
 }
