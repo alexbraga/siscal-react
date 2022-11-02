@@ -84,6 +84,7 @@ function Form() {
 
   function nextStep() {
     setTitle((currentValue) => currentValue + 1);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
   function prevStep() {
