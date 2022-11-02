@@ -9,7 +9,6 @@ import About from "./pages/About";
 import AppBar from "./components/AppBar";
 import DrawerHeader from "./components/DrawerHeader";
 import Drawer from "./components/Drawer";
-import "./App.css";
 
 const drawerWidth = 240;
 
