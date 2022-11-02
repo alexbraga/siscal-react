@@ -1,0 +1,18 @@
+.currencyinput {
+    border: 1px solid #ccc;
+    display: inline-block;
+    height: 23px;
+    width: 215px;
+    padding: 16.5px 14px;
+}
+
+.currencyinput input {
+    border: 0;
+    font-size: medium;
+    width: 192px;
+    padding: 0;
+}
+
+.currencyinput input:focus {
+    outline: none;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BusinessDetailsForm from "./BusinessDetailsForm";
+import BusinessDetailsForm from "./BusinessDetailsForm/BusinessDetailsForm";
 import RelevanceFactorForm from "./RelevanceFactorForm";
 import TemporalityFactorForm from "./TemporalityFactorForm";
 import CoverageFactorForm from "./CoverageFactorForm";
@@ -48,7 +48,7 @@ function Form() {
   const [tempFactor, setTempFactor] = useState("");
   const [coverageFactor, setCoverageFactor] = useState("");
   const [scores, setScores] = useState(0);
-  const radioScores = [0, 0, 0, 0];
+  const [radioScores, setRadioScores] = useState([0, 0, 0, 0]);
 
   useEffect(() => {
     const uncheckedElements = document.querySelectorAll(
@@ -78,7 +78,7 @@ function Form() {
         return !uncheckedRadios.includes(element);
       })
     );
-    console.log(scores);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 
@@ -90,13 +90,13 @@ function Form() {
     setStep((currentValue) => currentValue - 1);
   }
 
-  function handleChange(event) {
+  function handleChange(event, maskedvalue, floatvalue) {
     const { name, id, value, checked } = event.target;
 
     setFormData((prevValue) => {
       return {
         ...prevValue,
-        [name]: value,
+        [name]: name === "referenceValue" ? floatvalue : value,
         relevanceFactor: {
           ...prevValue.relevanceFactor,
           [id]: checked,

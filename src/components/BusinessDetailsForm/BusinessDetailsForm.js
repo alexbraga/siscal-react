@@ -1,5 +1,7 @@
 import React from 'react'
 import TextField from "@mui/material/TextField";
+import CurrencyInput from "@ericblade/react-currency-input";
+import "./styles.css";
 
 function BusinessDetailsForm(props) {
   return (
@@ -20,13 +22,18 @@ function BusinessDetailsForm(props) {
         value={props.formData.cnpj}
       />
       <br />
-      <TextField
-        sx={{ marginBottom: 2 }}
-        label="Valor de Referência"
-        name="referenceValue"
-        onChange={props.handleChange}
-        value={props.formData.referenceValue}
-      />
+
+      <span className="currencyinput">
+        R${" "}
+        <CurrencyInput
+          name="referenceValue"
+          decimalSeparator=","
+          thousandSeparator="."
+          required
+          onChangeEvent={props.handleChange}
+          value={props.formData.referenceValue}
+        />
+      </span>
     </div>
   );
 }
