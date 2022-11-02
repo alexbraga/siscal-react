@@ -37,10 +37,22 @@ export const Relevance = [
     id: "rf06",
     text: "Interferência em áreas prioritárias para a conservação, conforme 'Biodiversidade em Minas Gerais – Um Atlas para sua Conservação':",
     options: [
-      { value: "Importância Biológica Especial", score: 0.05 },
-      { value: "Importância Biológica Extrema", score: 0.045 },
-      { value: "Importância Biológica Muito Alta", score: 0.04 },
-      { value: "Importância Biológica Alta", score: 0.035 },
+      {
+        value: "Importância Biológica Especial",
+        score: 0.05
+      },
+      {
+        value: "Importância Biológica Extrema",
+        score: 0.045
+      },
+      {
+        value: "Importância Biológica Muito Alta",
+        score: 0.04
+      },
+      {
+        value: "Importância Biológica Alta",
+        score: 0.035
+      },
     ],
   },
   {
