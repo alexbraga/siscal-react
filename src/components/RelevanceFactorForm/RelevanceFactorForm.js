@@ -4,7 +4,9 @@ import Switch from "@mui/material/Switch";
 import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import { Relevance } from "../factors";
+import { Relevance } from "../../factors";
+import Box from "@mui/material/Box";
+import "./styles.css"
 
 function RelevanceFactorForm(props) {
   function getOptions() {
@@ -44,6 +46,7 @@ function RelevanceFactorForm(props) {
                 })}
               </FormControl>
             </td>
+            <td></td>
           </tr>
         );
       }
@@ -69,13 +72,15 @@ function RelevanceFactorForm(props) {
   }
 
   return (
-    <div>
-      <div className="rf-table">
-        <table>
-          <tbody>{getOptions()}</tbody>
-        </table>
+    <Box m="auto">
+      <div>
+        <div className="table-container">
+          <table className="rf-table">
+            <tbody>{getOptions()}</tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </Box>
   );
 }
 

@@ -1,0 +1,26 @@
+
+.main-container {
+  padding-left: 30px;
+}
+
+.custom-container {
+  width: 75%;
+  text-align: justify;
+}
+
+.formula {
+  border: 1px solid lightslategray;
+  display: inline-block;
+  padding: 5px;
+}
+
+@media (max-width: 576px) {
+  .custom-container {
+  width: 100%;
+  text-align: left;
+}
+
+.main-container {
+  padding-left: 10px;
+}
+}

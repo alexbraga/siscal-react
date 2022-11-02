@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import BusinessDetailsForm from "./BusinessDetailsForm/BusinessDetailsForm";
-import RelevanceFactorForm from "./RelevanceFactorForm";
-import TemporalityFactorForm from "./TemporalityFactorForm";
-import CoverageFactorForm from "./CoverageFactorForm";
-import Report from "./Report";
+import BusinessDetailsForm from "../components/BusinessDetailsForm/BusinessDetailsForm";
+import RelevanceFactorForm from "../components/RelevanceFactorForm/RelevanceFactorForm";
+import TemporalityFactorForm from "../components/TemporalityFactorForm";
+import CoverageFactorForm from "../components/CoverageFactorForm";
+import Report from "../components/Report";
 import Button from "@mui/material/Button";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
 import { Relevance } from "../factors";
+import MainLayout from "../components/MainLayout";
+import Box from "@mui/material/Box";
+import "./styles.css";
 
 function Form() {
-  const [step, setStep] = useState(0);
+  const [title, setTitle] = useState(0);
 
   const [formData, setFormData] = useState({
     businessName: "",
@@ -41,7 +41,7 @@ function Form() {
     "Fator de Relevância",
     "Fator de Temporalidade",
     "Fator de Abrangência",
-    "Relatório Final",
+    "Relatório",
   ];
 
   const [relFactors, setRelFactors] = useState([]);
@@ -83,11 +83,11 @@ function Form() {
   }, [formData]);
 
   function nextStep() {
-    setStep((currentValue) => currentValue + 1);
+    setTitle((currentValue) => currentValue + 1);
   }
 
   function prevStep() {
-    setStep((currentValue) => currentValue - 1);
+    setTitle((currentValue) => currentValue - 1);
   }
 
   function handleChange(event, maskedvalue, floatvalue) {
@@ -162,7 +162,7 @@ function Form() {
   }
 
   function pageDisplay() {
-    switch (step) {
+    switch (title) {
       case 0:
         return (
           <BusinessDetailsForm
@@ -217,42 +217,38 @@ function Form() {
   }
 
   return (
-    <div className="form">
-      <div className="form-container">
-        <div className="header">
-          <div className="progress-bar">
-            <Stepper activeStep={step} alternativeLabel sx={{ margin: 5 }}>
-              {steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
+    <MainLayout>
+      <Box m="auto">
+        <div className="form" style={{ textAlign: "center" }}>
+          <div className="form-container">
+            <div className="header">
+              <h1>{steps[title]}</h1>
+            </div>
+
+            <div className="body">{pageDisplay()}</div>
+
+            <div className="footer">
+              <Button
+                variant="contained"
+                disabled={title === 0}
+                onClick={prevStep}
+                sx={{ margin: 2 }}
+              >
+                Anterior
+              </Button>
+              <Button
+                variant="contained"
+                disabled={title === 4}
+                onClick={nextStep}
+                sx={{ margin: 2 }}
+              >
+                Próximo
+              </Button>
+            </div>
           </div>
         </div>
-
-        <div className="body">{pageDisplay()}</div>
-
-        <div className="footer">
-          <Button
-            variant="contained"
-            disabled={step === 0}
-            onClick={prevStep}
-            sx={{ margin: 2 }}
-          >
-            Anterior
-          </Button>
-          <Button
-            variant="contained"
-            disabled={step === 4}
-            onClick={nextStep}
-            sx={{ margin: 2 }}
-          >
-            Próximo
-          </Button>
-        </div>
-      </div>
-    </div>
+      </Box>
+    </MainLayout>
   );
 }
 

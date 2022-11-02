@@ -1,0 +1,30 @@
+.table-container {
+  width: 55%;
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.rf-table tbody tr {
+  height: 74px;
+  border-top: 1px solid #cecece;
+}
+
+.rf-table tbody tr:hover > td {
+  background-color: #f7f7f7;
+}
+
+@media (max-width: 576px) {
+  .table-container {
+  width: 100%;
+  margin: auto;
+}
+
+.rf-table tbody tr {
+  height: 100px;
+}
+}
