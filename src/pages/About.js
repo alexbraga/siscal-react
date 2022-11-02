@@ -33,11 +33,52 @@ function About() {
         <p>
           <strong>Lista de normas sobre a compensação:</strong>
         </p>
-        <p>Lei Federal nº 9.985, de 2000 (art. 36)</p>
-        <p>Decreto Federal nº 4.340, de 2002</p>
-        <p>Decreto Estadual nº 45.175, de 2009</p>
-        <p>Portaria IEF nº 55, de 2012</p>
-        <p>Portaria IEF nº 77, de 2020</p>
+        <p>
+          <a
+            href="https://www.jusbrasil.com.br/busca?q=art.+36+da+lei+9985%2F00"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Lei Federal nº 9.985, de 2000 (art. 36)
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://www2.camara.leg.br/legin/fed/decret/2002/decreto-4340-22-agosto-2002-451270-norma-pe.html"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Decreto Federal nº 4.340, de 2002
+          </a>
+        </p>
+        <p>
+          <a
+            href="http://www.siam.mg.gov.br/sla/download.pdf?idNorma=18034"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Decreto Estadual nº 45.175, de 2009
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://www.legisweb.com.br/legislacao/?id=240632"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Portaria IEF nº 55, de 2012
+          </a>
+        </p>
+
+        <p>
+          <a
+            href="http://www.siam.mg.gov.br/sla/download.pdf?idNorma=52145"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Portaria IEF nº 77, de 2020
+          </a>
+        </p>
       </div>
       <br />
       <div className="how-to custom-container">
