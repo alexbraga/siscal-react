@@ -30,7 +30,7 @@ function TemporalityFactorForm(props) {
 
   return (
     <div>
-      <FormControl>
+      <FormControl sx={{ height: "250px" }}>
         <FormLabel id="demo-radio-buttons-group-label">Duração</FormLabel>
         {getOptions()}
       </FormControl>
