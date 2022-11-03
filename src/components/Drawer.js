@@ -7,6 +7,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -17,6 +18,25 @@ import DrawerHeader from "./DrawerHeader";
 
 const MyDrawer = ({ drawerWidth, open, ToggleDrawer }) => {
   const theme = useTheme();
+
+  const menuEntries = [
+    {
+      title: "Cálculo de Compensação",
+      icon: <CalculateIcon color="primary" />,
+      path: "/",
+    },
+    {
+      title: "Informações",
+      icon: <InfoOutlined color="primary" />,
+      path: "/about",
+    },
+    {
+      title: "Contato",
+      icon: <AlternateEmailIcon color="primary" />,
+      path: "/contact",
+    },
+  ];
+
   return (
     <Drawer
       sx={{
@@ -41,31 +61,22 @@ const MyDrawer = ({ drawerWidth, open, ToggleDrawer }) => {
         </IconButton>
       </DrawerHeader>
       <Divider />
+
       <List>
-        <Link underline="none" to="/" key="home">
-          <ListItemButton>
-            <ListItemIcon>
-              <CalculateIcon color="primary" />
-            </ListItemIcon>
-            <ListItemText primary="Cálculo de Compensação" />
-          </ListItemButton>
-        </Link>
-        <Link underline="none" to="/about" key="about">
-          <ListItemButton>
-            <ListItemIcon>
-              <InfoOutlined color="primary" />
-            </ListItemIcon>
-            <ListItemText primary="Informações" />
-          </ListItemButton>
-        </Link>
-        <Link underline="none" to="/contact" key="contact">
-          <ListItemButton>
-            <ListItemIcon>
-              <AlternateEmailIcon color="primary" />
-            </ListItemIcon>
-            <ListItemText primary="Contato" />
-          </ListItemButton>
-        </Link>
+        {menuEntries.map((entry, index) => (
+          <Link
+            style={{ textDecoration: "none" }}
+            to={entry.path}
+            onClick={ToggleDrawer}
+          >
+            <ListItem key={entry.title} disablePadding>
+              <ListItemButton>
+                <ListItemIcon sx={{ mr: -2 }}>{entry.icon}</ListItemIcon>
+                <ListItemText primary={entry.title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </Drawer>
   );
