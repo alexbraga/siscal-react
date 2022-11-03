@@ -4,7 +4,7 @@ import MainLayout from "../components/MainLayout";
 function Contact() {
   return (
     <MainLayout>
-      <h1>Contact page</h1>
+      <h1>Informações de Contato</h1>
     </MainLayout>
   );
 }
