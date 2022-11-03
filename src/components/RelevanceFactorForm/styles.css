@@ -1,5 +1,5 @@
 .table-container {
-  width: 55%;
+  width: 45%;
   margin: auto;
 }
 
@@ -7,6 +7,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
+}
+
+.rf-table tbody {
+  text-align: left;
 }
 
 .rf-table tbody tr {
