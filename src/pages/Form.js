@@ -48,7 +48,7 @@ function Form() {
   const [tempFactor, setTempFactor] = useState("");
   const [coverageFactor, setCoverageFactor] = useState("");
   const [scores, setScores] = useState(0);
-  const [radioScores, setRadioScores] = useState([0, 0, 0, 0]);
+  const [radioScores] = useState([0, 0, 0, 0]);
 
   useEffect(() => {
     const uncheckedElements = document.querySelectorAll(
