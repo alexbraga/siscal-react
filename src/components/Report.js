@@ -103,8 +103,8 @@ function Report(props) {
       </Typography>
       <Typography variant="body2" sx={{ mt: 1 }}>
         <em>
-          *Se a soma de FR + (FT + FA) &gt; 0.5, o índice a ser utilizado é
-          0.005; caso contrário, considera-se o valor obtido multiplicado por
+          *Se a soma de FR + (FT + FA) &gt; 0,5, o índice a ser utilizado é
+          0,005; caso contrário, considera-se o valor obtido multiplicado por
           0,01.
         </em>
       </Typography>
