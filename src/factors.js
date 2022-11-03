@@ -15,11 +15,15 @@ export const Relevance = [
     options: [
       {
         value: "Ecossistemas especialmente protegidos",
-        score: 0.05
+        score: 0.05,
       },
       {
         value: "Outros biomas",
-        score: 0.045
+        score: 0.045,
+      },
+      {
+        value: "Não há interferência",
+        score: 0,
       },
     ],
   },
@@ -39,19 +43,23 @@ export const Relevance = [
     options: [
       {
         value: "Importância Biológica Especial",
-        score: 0.05
+        score: 0.05,
       },
       {
         value: "Importância Biológica Extrema",
-        score: 0.045
+        score: 0.045,
       },
       {
         value: "Importância Biológica Muito Alta",
-        score: 0.04
+        score: 0.04,
       },
       {
         value: "Importância Biológica Alta",
-        score: 0.035
+        score: 0.035,
+      },
+      {
+        value: "Não há interferência",
+        score: 0,
       },
     ],
   },
