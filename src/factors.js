@@ -125,11 +125,11 @@ export const Coverage = {
   options: [
     {
       value: "Área de Interferência DIRETA do Empreendimento",
-      score: 0.05
+      score: 0.03
     },
     {
       value: "Área de interferência INDIRETA do Empreendimento",
-      score: 0.065
+      score: 0.05
     },
   ],
 };
