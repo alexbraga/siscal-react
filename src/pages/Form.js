@@ -239,7 +239,11 @@ function Form() {
               </Button>
               <Button
                 variant="contained"
-                disabled={title === 4}
+                disabled={
+                  (title === 2 && formData.temporalityFactor === "") ||
+                  (title === 3 && formData.coverageFactor === "") ||
+                  title === 4
+                }
                 onClick={nextStep}
                 sx={{ margin: 2 }}
               >
