@@ -58,7 +58,7 @@ function Form() {
       <TerrainIcon fontSize="large" />
       <Typography variant="h4">Fator de Abrangência</Typography>
     </div>,
-    <Typography>Relatório</Typography>,
+    <Typography variant="h4">Relatório</Typography>,
   ];
 
   const [relFactors, setRelFactors] = useState([]);
