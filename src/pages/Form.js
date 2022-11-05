@@ -8,7 +8,12 @@ import Button from "@mui/material/Button";
 import { Relevance } from "../factors";
 import MainLayout from "../components/MainLayout";
 import Box from "@mui/material/Box";
+import InfoIcon from "@mui/icons-material/Info";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import UpdateIcon from "@mui/icons-material/Update";
+import TerrainIcon from "@mui/icons-material/Terrain";
 import "./styles.css";
+import { Typography } from "@mui/material";
 
 function Form() {
   const [title, setTitle] = useState(0);
@@ -37,11 +42,23 @@ function Form() {
   });
 
   const steps = [
-    "Informações do Empreendimento",
-    "Fator de Relevância",
-    "Fator de Temporalidade",
-    "Fator de Abrangência",
-    "Relatório",
+    <div>
+      <InfoIcon fontSize="large" />
+      <Typography variant="h4">Informações do Empreendimento</Typography>
+    </div>,
+    <div>
+      <AssignmentIcon fontSize="large" />
+      <Typography variant="h4">Fator de Relevância</Typography>
+    </div>,
+    <div>
+      <UpdateIcon fontSize="large" />
+      <Typography variant="h4">Fator de Temporalidade</Typography>
+    </div>,
+    <div>
+      <TerrainIcon fontSize="large" />
+      <Typography variant="h4">Fator de Abrangência</Typography>
+    </div>,
+    <Typography>Relatório</Typography>,
   ];
 
   const [relFactors, setRelFactors] = useState([]);
