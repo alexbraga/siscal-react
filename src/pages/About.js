@@ -35,7 +35,7 @@ function About() {
         </p>
         <p>
           <a
-            href="https://www.jusbrasil.com.br/busca?q=art.+36+da+lei+9985%2F00"
+            href="http://www.planalto.gov.br/ccivil_03/leis/l9985.htm"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -44,7 +44,7 @@ function About() {
         </p>
         <p>
           <a
-            href="https://www2.camara.leg.br/legin/fed/decret/2002/decreto-4340-22-agosto-2002-451270-norma-pe.html"
+            href="http://www.planalto.gov.br/ccivil_03/decreto/2002/d4340.htm"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -53,7 +53,7 @@ function About() {
         </p>
         <p>
           <a
-            href="http://www.siam.mg.gov.br/sla/download.pdf?idNorma=18034"
+            href="https://www.almg.gov.br/legislacao-mineira/texto/DEC/45175/2009/?cons=1"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -62,7 +62,7 @@ function About() {
         </p>
         <p>
           <a
-            href="https://www.legisweb.com.br/legislacao/?id=240632"
+            href="http://www.siam.mg.gov.br/sla/download.pdf?idNorma=21117"
             rel="noopener noreferrer"
             target="_blank"
           >
