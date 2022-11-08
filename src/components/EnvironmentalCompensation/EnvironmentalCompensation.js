@@ -48,21 +48,26 @@ function EnvironmentalCompensation(props) {
 
   return (
     <div>
-      <Typography variant="h6">
-        <strong>
-          Valor da Compensação Ambiental (CA = FR + (FT + FA) * VR):
-        </strong>{" "}
-        <span>
-          <h3>{formatter.format(envCompensation())}</h3>
-        </span>
-      </Typography>
+      <div>
+        {/* COMPESAÇÃO AMBIENTAL */}
+        <Typography variant="h6">
+          <strong>
+            Valor da Compensação Ambiental (CA = FR + (FT + FA) * VR):
+          </strong>{" "}
+          <span>
+            <h3>{formatter.format(envCompensation())}</h3>
+          </span>
+        </Typography>
+      </div>
 
       <div className="info">
+        {/* VALOR DE REFERÊNCIA */}
         <Typography variant="body2">
           <strong>Valor de Referência:</strong>{" "}
           {formatter.format(props.formData.referenceValue)}
         </Typography>
 
+        {/* ÍNDICES DOS FATORES */}
         <Typography variant="body2">
           <strong>Índice FR:</strong> {relFactorScore()}
         </Typography>
@@ -78,9 +83,8 @@ function EnvironmentalCompensation(props) {
 
         <Typography variant="body2" sx={{ mt: 1 }}>
           <em>
-            *Se FR + (FT + FA) &gt; 0,5, o índice a ser utilizado é
-            0,005; caso contrário, considera-se o valor obtido multiplicado por
-            0,01.
+            *Se FR + (FT + FA) &gt; 0,5, o índice a ser utilizado é 0,005; caso
+            contrário, considera-se o valor obtido multiplicado por 0,01.
           </em>
         </Typography>
       </div>
