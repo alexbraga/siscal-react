@@ -1,0 +1,9 @@
+h3 {
+  color: green;
+}
+
+.info {
+  display: inline-block;
+  border-top: 1px solid lightslategray;
+  padding-top: 30px;
+}

@@ -3,6 +3,7 @@ import BusinessDetailsForm from "../components/BusinessDetailsForm/BusinessDetai
 import RelevanceFactorForm from "../components/RelevanceFactorForm/RelevanceFactorForm";
 import TemporalityFactorForm from "../components/TemporalityFactorForm/TemporalityFactorForm";
 import CoverageFactorForm from "../components/CoverageFactorForm/CoverageFactorForm";
+import EnvironmentalCompensation from "../components/EnvironmentalCompensation/EnvironmentalCompensation";
 import Report from "../components/Report";
 import Button from "@mui/material/Button";
 import { Relevance } from "../factors";
@@ -12,6 +13,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import UpdateIcon from "@mui/icons-material/Update";
 import TerrainIcon from "@mui/icons-material/Terrain";
+import PaidIcon from "@mui/icons-material/Paid";
 import "./styles.css";
 import { Typography } from "@mui/material";
 
@@ -57,6 +59,10 @@ function Form() {
     <div>
       <TerrainIcon fontSize="large" />
       <Typography variant="h4">Fator de Abrangência</Typography>
+    </div>,
+    <div>
+      <PaidIcon fontSize="large" />
+      <Typography variant="h4">Compensação Ambiental</Typography>
     </div>,
     <Typography variant="h4">Relatório</Typography>,
   ];
@@ -218,8 +224,16 @@ function Form() {
 
       case 4:
         return (
+          <EnvironmentalCompensation
+            formData={formData}
+            scores={scores}
+            radioScores={radioScores}
+          />
+        );
+
+      case 5:
+        return (
           <Report
-            handleChange={handleChange}
             formData={formData}
             relevanceFactors={relFactors}
             temporalityFactor={tempFactor}
@@ -259,12 +273,12 @@ function Form() {
                 disabled={
                   (title === 2 && formData.temporalityFactor === "") ||
                   (title === 3 && formData.coverageFactor === "") ||
-                  title === 4
+                  title === 5
                 }
                 onClick={nextStep}
                 sx={{ margin: 2 }}
               >
-                Próximo
+                {title === 3 ? "Calcular" : "Próximo"}
               </Button>
             </div>
           </div>
