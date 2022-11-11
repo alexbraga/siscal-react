@@ -91,7 +91,7 @@ function About() {
         </p>
 
         <div className="formula">
-          <h4>CA = FR + (FT + FA) * VR</h4>
+          <h4>CA = (FR + FT + FA) x VR</h4>
         </div>
       </div>
     </MainLayout>
