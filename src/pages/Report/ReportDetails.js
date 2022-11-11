@@ -35,7 +35,7 @@ function ReportDetails(props) {
 
         <View style={styles.referece_value}>
           <Text style={{ fontFamily: "Helvetica-Bold" }}>
-            Valor de Referência (VR):{" "}
+            Valor de Referência:{" "}
           </Text>
           <Text>{formatter.format(props.formData.referenceValue)}</Text>
         </View>

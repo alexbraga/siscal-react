@@ -20,16 +20,15 @@ function ReportNotes() {
             { color: "#608f39", fontFamily: "Helvetica-Bold" },
           ]}
         >
-          Notas
+          Nota
         </Text>
         <Text style={styles.text}>
-          A fórmula utilizada para o cálculo da compensação ambiental é CA = (FR
-          + FT + FA) x VR.
-        </Text>
-        <Text style={styles.text}>
-          *Se a soma de FR + FT + FA for maior que 0,5, o índice a ser utilizado
-          é 0,005;{"\n"}caso contrário, considera-se o valor obtido na soma
-          multiplicado por 0,01.
+          Os cálculos efetuados dependem diretamente da marcação dos itens
+          indicados nos fatores de relevância, temporalidade e abrangência. O
+          valor calculado é estimativo e referencial para a análise e
+          planejamento da compensação ambiental, podendo existir diferenças nos
+          cálculos elaborados pelo órgão ambiental responsável, caso ocorram
+          divergências na marcação dos itens.
         </Text>
       </View>
     </Fragment>

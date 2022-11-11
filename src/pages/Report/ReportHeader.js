@@ -6,7 +6,6 @@ function ReportHeader() {
   const styles = StyleSheet.create({
     header_title: {
       color: "grey",
-      fontSize: 9,
       marginBottom: 20,
       textAlign: "center",
     },
@@ -14,7 +13,6 @@ function ReportHeader() {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
-      marginTop: 10,
     },
     image: {
       marginBottom: 15,
@@ -25,7 +23,7 @@ function ReportHeader() {
       color: "#818181",
       display: "flex",
       flexDirection: "column",
-      fontSize: 9,
+      marginTop: 15,
     },
   });
 
@@ -40,9 +38,6 @@ function ReportHeader() {
 
         <View style={styles.info}>
           <Text>Claudio Castro</Text>
-          <Text style={{ marginBottom: 5 }}>Registro OAB</Text>
-          <Text>Rua X, 123. Bairro Z</Text>
-          <Text style={{ marginBottom: 5 }}>Belo Horizonte, MG</Text>
           <Text>(31) 99589-3029</Text>
           <Text>claudio@vieiracastro.com.br</Text>
         </View>
