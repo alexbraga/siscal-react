@@ -4,7 +4,6 @@ import RelevanceFactorForm from "../components/RelevanceFactorForm/RelevanceFact
 import TemporalityFactorForm from "../components/TemporalityFactorForm/TemporalityFactorForm";
 import CoverageFactorForm from "../components/CoverageFactorForm/CoverageFactorForm";
 import EnvironmentalCompensation from "../components/EnvironmentalCompensation/EnvironmentalCompensation";
-import Report from "../components/Report";
 import Button from "@mui/material/Button";
 import { Relevance } from "../factors";
 import MainLayout from "../components/MainLayout";
@@ -16,6 +15,8 @@ import TerrainIcon from "@mui/icons-material/Terrain";
 import PaidIcon from "@mui/icons-material/Paid";
 import "./styles.css";
 import { Typography } from "@mui/material";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import MyDocument from "./Report/Report";
 
 function Form() {
   const [title, setTitle] = useState(0);
@@ -231,22 +232,21 @@ function Form() {
           />
         );
 
-      case 5:
-        return (
-          <Report
-            formData={formData}
-            relevanceFactors={relFactors}
-            temporalityFactor={tempFactor}
-            coverageFactor={coverageFactor}
-            scores={scores}
-            radioScores={radioScores}
-          />
-        );
-
       default:
         break;
     }
   }
+
+  // Create a date object from a date string
+  const date = new Date(Date.now());
+
+  // Get year, month, and day part from the date
+  const year = date.toLocaleString("pt-BR", { year: "numeric" });
+  const month = date.toLocaleString("pt-BR", { month: "2-digit" });
+  const day = date.toLocaleString("pt-BR", { day: "2-digit" });
+
+  // Generate yyyy-mm-dd date string
+  const formattedDate = year + "-" + month + "-" + day;
 
   return (
     <MainLayout>
@@ -268,18 +268,49 @@ function Form() {
               >
                 Anterior
               </Button>
-              <Button
-                variant="contained"
-                disabled={
-                  (title === 2 && formData.temporalityFactor === "") ||
-                  (title === 3 && formData.coverageFactor === "") ||
-                  title === 5
-                }
-                onClick={nextStep}
-                sx={{ margin: 2 }}
-              >
-                {title === 3 ? "Calcular" : "Próximo"}
-              </Button>
+              {title === 4 ? (
+                <PDFDownloadLink
+                  style={{
+                    backgroundColor: "green",
+                    borderRadius: "4px",
+                    color: "white",
+                    display: "inline-block",
+                    fontSize: 14,
+                    height: "38.5px",
+                    padding: "10px",
+                    textDecoration: "none",
+                    width: "106px",
+                    margin: "0 15px",
+                  }}
+                  document={
+                    <MyDocument
+                      formData={formData}
+                      relevanceFactors={relFactors}
+                      temporalityFactor={tempFactor}
+                      coverageFactor={coverageFactor}
+                      scores={scores}
+                      radioScores={radioScores}
+                    />
+                  }
+                  fileName={`${formattedDate}-relatorio.pdf`}
+                >
+                  {({ blob, url, loading, error }) =>
+                    loading ? "Aguarde..." : "DOWNLOAD"
+                  }
+                </PDFDownloadLink>
+              ) : (
+                <Button
+                  variant="contained"
+                  disabled={
+                    (title === 2 && formData.temporalityFactor === "") ||
+                    (title === 3 && formData.coverageFactor === "")
+                  }
+                  onClick={nextStep}
+                  sx={{ margin: 2 }}
+                >
+                  {title === 3 ? "Calcular" : "Próximo"}
+                </Button>
+              )}
             </div>
           </div>
         </div>
