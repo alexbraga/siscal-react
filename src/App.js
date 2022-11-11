@@ -40,8 +40,8 @@ function App() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <BrowserRouter>
+      <CssBaseline />
         <AppBar open={open} ToggleDrawer={ToggleDrawer} />
         <Drawer
           open={open}
