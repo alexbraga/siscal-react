@@ -68,7 +68,9 @@ const ReportTableSubtotal = (props) => {
         <View style={styles.factor}>
           <Text style={styles.description}>Índice utilizado*</Text>
           <Text style={styles.total}>
-            {scoreSum > 0.5 ? 0.005 : scoreSum * 0.01}
+            {scoreSum > 0.5
+              ? 0.005
+              : ((scoreSum * 0.01).toFixed(5) * 100000) / 100000}
           </Text>
         </View>
       </View>

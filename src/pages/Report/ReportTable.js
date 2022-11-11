@@ -52,10 +52,11 @@ const ReportTable = (props) => {
     if (scoreSum > 0.5) {
       factorIndex = 0.005;
     } else {
-      factorIndex = scoreSum * 0.01;
+      factorIndex = (scoreSum * 0.01).toFixed(5) * 100000 / 100000;
     }
 
-    const compensationValue = props.formData.referenceValue * factorIndex;
+    const compensationValue =
+      props.formData.referenceValue * factorIndex;
 
     return compensationValue;
   }
