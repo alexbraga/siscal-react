@@ -1,3 +1,22 @@
+.drawer-link {
+  color: black;
+  text-decoration: none;
+}
+
+.drawer-link:hover {
+  color: #608f39;
+}
+
+.menu-button {
+  display: flex;
+  margin: 10px 0;
+  padding-left: 7px;
+}
+
+.external-link {
+  color: #608f39;
+}
+
 .main-container {
   padding-left: 30px;
 }

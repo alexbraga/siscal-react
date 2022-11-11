@@ -19,20 +19,22 @@ import DrawerHeader from "./DrawerHeader";
 const MyDrawer = ({ drawerWidth, open, ToggleDrawer }) => {
   const theme = useTheme();
 
+  const iconColor = { color: "#3aa021" };
+
   const menuEntries = [
     {
       title: "Cálculo de Compensação",
-      icon: <CalculateIcon color="primary" />,
+      icon: <CalculateIcon sx={iconColor} />,
       path: "/",
     },
     {
       title: "Informações",
-      icon: <InfoOutlined color="primary" />,
+      icon: <InfoOutlined sx={iconColor} />,
       path: "/about",
     },
     {
       title: "Contato",
-      icon: <AlternateEmailIcon color="primary" />,
+      icon: <AlternateEmailIcon sx={iconColor} />,
       path: "/contact",
     },
   ];
@@ -64,16 +66,12 @@ const MyDrawer = ({ drawerWidth, open, ToggleDrawer }) => {
 
       <List>
         {menuEntries.map((entry, index) => (
-          <Link
-            style={{ textDecoration: "none" }}
-            to={entry.path}
-            onClick={ToggleDrawer}
-          >
+          <Link className="drawer-link" to={entry.path} onClick={ToggleDrawer}>
             <ListItem key={entry.title} disablePadding>
-              <ListItemButton>
+              <div className="menu-button">
                 <ListItemIcon sx={{ mr: -2 }}>{entry.icon}</ListItemIcon>
                 <ListItemText primary={entry.title} />
-              </ListItemButton>
+              </div>
             </ListItem>
           </Link>
         ))}

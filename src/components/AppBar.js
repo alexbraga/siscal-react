@@ -26,7 +26,7 @@ const AppBar = styled(MuiAppBar, {
 
 const MyAppBar = ({ open, ToggleDrawer }) => {
   return (
-    <AppBar position="fixed" open={open}>
+    <AppBar position="fixed" open={open} sx={{ background: "#608f39" }}>
       <Toolbar>
         <IconButton
           anchor="left"
