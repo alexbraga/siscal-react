@@ -55,7 +55,7 @@ function EnvironmentalCompensation(props) {
         {/* COMPESAÇÃO AMBIENTAL */}
         <Typography variant="h6">
           <strong>
-            Valor da Compensação Ambiental (CA = FR + (FT + FA) * VR):
+            Valor da Compensação Ambiental (CA = (FR + FT + FA) x VR):
           </strong>{" "}
           <span>
             <h3>{formatter.format(envCompensation())}</h3>
