@@ -276,7 +276,7 @@ function Form() {
                     color: "white",
                     display: "inline-block",
                     fontSize: 14,
-                    height: "38.5px",
+                    height: "39px",
                     padding: "10px",
                     textDecoration: "none",
                     width: "106px",
@@ -311,6 +311,14 @@ function Form() {
                   {title === 3 ? "Calcular" : "Próximo"}
                 </Button>
               )}
+              {title === 4 ? (
+                <Button
+                  sx={{ display: "block", margin: "auto" }}
+                  onClick={() => window.location.reload()}
+                >
+                  Novo Cálculo
+                </Button>
+              ) : null}
             </div>
           </div>
         </div>
