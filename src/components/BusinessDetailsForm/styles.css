@@ -17,6 +17,7 @@
 
 .alert-stack {
   width: 60%;
+  text-align: justify;
 }
 
 @media (max-width: 810px) {

@@ -1,7 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import Stack from "@mui/material/Stack";
 import "./styles.css";
 
@@ -91,12 +90,16 @@ function EnvironmentalCompensation(props) {
           </em>
         </Typography>
 
-        <Stack className="alert-stack" sx={{ margin: "auto", marginTop: 2 }} spacing={2}>
+        <Stack
+          className="alert-stack"
+          sx={{ margin: "auto", marginTop: 2 }}
+          spacing={2}
+        >
           <Alert severity="warning">
-            <AlertTitle>ATENÇÃO</AlertTitle>As informações inseridas podem ser
-            alteradas clicando no botão ANTERIOR, porém não ficarão salvas caso
-            você feche a página ou navegue para fora do formulário. Clique em
-            DOWNLOAD para salvar uma cópia do relatório em PDF.
+            As informações inseridas podem ser alteradas clicando no botão
+            ANTERIOR, porém não ficarão salvas caso você feche a página ou
+            navegue para fora do formulário. Clique em DOWNLOAD para salvar uma
+            cópia do relatório em PDF.
           </Alert>
         </Stack>
       </div>
