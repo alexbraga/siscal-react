@@ -1,14 +1,19 @@
 .currencyinput {
   border: 1px solid #ccc;
+  border-radius: 4px;
   display: inline-block;
   padding: 14px 14px;
+}
+
+.currencyinput:hover {
+  border-color: black;
 }
 
 .currencyinput input {
   border: 0;
   font-size: medium;
-  width: 190px;
   padding: 0;
+  width: 190px;
 }
 
 .currencyinput input:focus {
