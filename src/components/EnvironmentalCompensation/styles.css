@@ -1,4 +1,4 @@
-h3 {
+.compensation-value {
   color: green;
 }
 
@@ -6,4 +6,11 @@ h3 {
   display: inline-block;
   border-top: 1px solid lightslategray;
   padding-top: 30px;
+  width: 50%;
+}
+
+@media (max-width: 810px) {
+  .info {
+    width: 100%;
+  }
 }
