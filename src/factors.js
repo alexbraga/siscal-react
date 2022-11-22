@@ -10,7 +10,9 @@ export const Relevance = [
       { text: "a) Portaria MMA nº 443/2014 (Flora Brasileira)" },
       { text: "b) Portaria MMA nº 444/2014 (Fauna Brasileira)" },
       { text: "c) Portaria MMA nº 445/2014 (Peixes e invertebrados)" },
-      { text: "d) Deliberação Normativa COPAM/MG nº 147, de 2010:" },
+      {
+        text: "d) Deliberação Normativa COPAM/MG nº 147, de 2010 (consultar site abaixo):",
+      },
       { url: "http://www.siam.mg.gov.br/sla/download.pdf?idNorma=13192" },
       {
         text: "- Em alguns pareceres, o órgão ambiental utiliza a Lista Vermelha IUCN 2011.",
@@ -46,7 +48,7 @@ export const Relevance = [
     ],
     info: [
       {
-        text: "- Com base na localização do empreendimento, consultar mapeamento florestal do Estado no site:",
+        text: "- Com base na localização do empreendimento, consultar mapeamento florestal do Estado no site abaixo:",
       },
       { url: "https://idesisema.meioambiente.mg.gov.br/webgis" },
     ],
@@ -102,7 +104,7 @@ export const Relevance = [
     ],
     info: [
       {
-        text: "- Considerar as áreas prioritárias para a conservação da biodiversidade, que podem ser consultadas em:",
+        text: "- Considerar as áreas prioritárias para a conservação da biodiversidade, que podem ser consultadas abaixo:",
       },
       { url: "https://idesisema.meioambiente.mg.gov.br/webgis" },
       {
