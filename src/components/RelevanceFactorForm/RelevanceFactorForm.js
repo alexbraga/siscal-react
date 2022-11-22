@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
 import Radio from "@mui/material/Radio";
@@ -37,7 +37,7 @@ function RelevanceFactorForm(props) {
                       target="_blank"
                       href={item.url}
                     >
-                      {item.url}
+                      Clique aqui
                     </a>
                   </p>
                 );
@@ -55,61 +55,69 @@ function RelevanceFactorForm(props) {
     return Relevance.map((factor, factorIndex) => {
       if (factor.id === "rf03" || factor.id === "rf06") {
         return (
-          <tr key={factor.id}>
-            <td colSpan="2">
-              <Typography>{factor.text}</Typography>
+          <Fragment key={factor.id}>
+            <tr className="factor-row">
+              <td colSpan="2">
+                <Typography>{factor.text}</Typography>
 
-              <FormControl>
-                {factor.options.map((option, optionIndex) => {
-                  return (
-                    <FormControlLabel
-                      key={optionIndex}
-                      label={option.value}
-                      control={
-                        <Radio
-                          name={factor.id}
-                          value={option.value}
-                          checked={
-                            props.formData.relevanceFactor[factor.id] ===
-                            option.value
-                          }
-                          onChange={(event) => {
-                            props.handleChange(event);
-                            props.handleChoice(
-                              event,
-                              factor.text,
-                              option.score
-                            );
-                          }}
-                        />
-                      }
-                    />
-                  );
-                })}
-              </FormControl>
-              {getInfo(factor, factorIndex)}
-            </td>
-          </tr>
+                <FormControl>
+                  {factor.options.map((option, optionIndex) => {
+                    return (
+                      <FormControlLabel
+                        key={optionIndex}
+                        label={option.value}
+                        control={
+                          <Radio
+                            name={factor.id}
+                            value={option.value}
+                            checked={
+                              props.formData.relevanceFactor[factor.id] ===
+                              option.value
+                            }
+                            onChange={(event) => {
+                              props.handleChange(event);
+                              props.handleChoice(
+                                event,
+                                factor.text,
+                                option.score
+                              );
+                            }}
+                          />
+                        }
+                      />
+                    );
+                  })}
+                </FormControl>
+              </td>
+            </tr>
+            <tr className="info-row">
+              <td>{getInfo(factor, factorIndex)}</td>
+            </tr>
+          </Fragment>
         );
       }
 
       return (
-        <tr key={factor.id}>
-          <td>
-            <Typography>{factor.text}</Typography>
-            {getInfo(factor, factorIndex)}
-          </td>
-          <td>
-            <Switch
-              id={factor.id}
-              checked={props.formData.relevanceFactor[factor.id]}
-              onChange={(event) => {
-                props.handleChange(event);
-                props.handleChoice(event, factor.text, factor.score);
-              }}
-            />
-          </td>
-        </tr>
+        <Fragment key={factor.id}>
+          <tr className="factor-row">
+            <td >
+              <Typography>{factor.text}</Typography>
+            </td>
+            <td>
+              <Switch
+                id={factor.id}
+                checked={props.formData.relevanceFactor[factor.id]}
+                onChange={(event) => {
+                  props.handleChange(event);
+                  props.handleChoice(event, factor.text, factor.score);
+                }}
+              />
+            </td>
+          </tr>
+          <tr className="info-row">
+            <td>{getInfo(factor, factorIndex)}</td>
+          </tr>
+        </Fragment>
       );
     });
   }
