@@ -65,8 +65,13 @@ const MyDrawer = ({ drawerWidth, open, ToggleDrawer }) => {
 
       <List>
         {menuEntries.map((entry, index) => (
-          <Link className="drawer-link" to={entry.path} onClick={ToggleDrawer}>
-            <ListItem key={entry.title} disablePadding>
+          <Link
+            key={entry.title}
+            className="drawer-link"
+            to={entry.path}
+            onClick={ToggleDrawer}
+          >
+            <ListItem disablePadding>
               <div className="menu-button">
                 <ListItemIcon sx={{ mr: -2 }}>{entry.icon}</ListItemIcon>
                 <ListItemText primary={entry.title} />
