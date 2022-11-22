@@ -23,7 +23,25 @@ table {
 }
 
 td {
-  padding: 15px 0;
+  padding: 15px;
+}
+
+.info-container {
+  background-color: rgb(229, 246, 253);
+  padding-left: 10px;
+}
+
+.info-container p {
+  color: rgb(1, 67, 97);
+  text-align: justify;
+  width: 80%;
+}
+
+.show-info {
+  color: #608f39;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
 }
 
 @media (max-width: 810px) {
